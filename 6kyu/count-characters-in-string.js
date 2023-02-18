@@ -6,4 +6,4 @@ function count(string) {
   return keys;
 }
 
-console.log(count('abbb'));
+console.log(count('abbb')); // { a: 1, b: 3 }
