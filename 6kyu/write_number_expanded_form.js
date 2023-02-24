@@ -16,3 +16,14 @@ function expandedForm(num) {
 	return arr.join(' + ');
 }
 console.log(expandedForm(70304));
+
+function mutation(arr) {
+	let test = true;
+	arr[1].split('').forEach(letter => {
+		if (!arr[0].toUpperCase().includes(letter.toUpperCase())) {
+			test = false;
+		}
+	});
+	return test;
+}
+console.log(mutation(['hello', 'hey']));
