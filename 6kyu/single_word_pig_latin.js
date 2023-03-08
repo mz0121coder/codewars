@@ -16,5 +16,18 @@ The input string has no vowels -> return the original string plus "ay".
 
 For example, the word "spaghetti" becomes "aghettispay" because the first two letters ("sp") are consonants, so they are moved to the end of the string and "ay" is appended.*/
 function pigLatin(string) {
-	//your code here
+	const s = string.toLowerCase();
+	const c = /^[^aeiou_\W]+/i;
+	const v = /^[aeiou]+/i;
+	return s.match(/\W|\d/)
+		? null
+		: s.match(c)
+		? `${s.substring(s.match(c).toString().length)}${s.match(c)}ay`
+		: s.match(v)
+		? `${s}way`
+		: 'completed';
 }
+console.log(pigLatin('spaghetti'));
+console.log(pigLatin('map')); //, "apmay");
+console.log(pigLatin('egg')); //, "eggway");
+console.log(pigLatin('tes3t5')); //, null);
