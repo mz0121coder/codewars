@@ -34,3 +34,26 @@ console.log(solve(['abc', 'xyz', 'abc', 'xyz', 'cde'], ['abc', 'cde', 'xyz'])); 
 console.log(
 	solve(['quick', 'brown', 'fox', 'is', 'quick'], ['quick', 'abc', 'fox'])
 ); //[ (2, 0, 1)]
+
+console.log(10 * (1.1 ^ (20 - 11)));
+(10 * 1.1) ^ (20 - 11);
+
+var humanYearsCatYearsDogYears = function (humanYears) {
+	let catYears = 0;
+	let dogYears = 0;
+	let result = [0, 0, 0];
+	for (let i = 1; i <= humanYears; i++) {
+		if (i === 1) {
+			catYears += 15;
+			dogYears += 15;
+		} else if (i === 2) {
+			catYears += 9;
+			dogYears += 9;
+		} else {
+			catYears += 4;
+			dogYears += 4;
+		}
+	}
+	result = [humanYears, catYears, dogYears];
+	return result;
+};
