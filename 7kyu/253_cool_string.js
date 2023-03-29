@@ -33,3 +33,14 @@ console.log(coolString('wWw1')); //,false)
 console.log(coolString('2')); //,false)
 console.log(coolString('aAaAaAa')); //,true)
 console.log(coolString('    ')); //,false)
+
+function getDropdownMenu() {
+	return (
+		<ul id='dropdown-menu' className='dropdown'>
+			<li>Profile</li>
+			<li>Orders</li>
+			<li className='separator'></li>
+			<li>Logout</li>
+		</ul>
+	);
+}
