@@ -46,3 +46,36 @@ console.log(
 	removeParentheses('hello example (words(more words) here) something')
 ); //"hello example  something")
 console.log(removeParentheses('(first group) (second group) (third group)')); //"  ")
+
+function Input(props) {
+	const { type = 'text', placeholder, name } = props;
+	return (
+		<input
+			type={type}
+			placeholder={placeholder}
+			name={name}
+			className='ui-textfield'
+		/>
+	);
+}
+
+function changeMe(moneyIn) {
+	// Write your function here
+	if (moneyIn === '£5') {
+		return '20p '.repeat(25).trim();
+	}
+	if (moneyIn === '£2') {
+		return '20p '.repeat(10).trim();
+	}
+	if (moneyIn === '£1') {
+		return '20p '.repeat(5).trim();
+	}
+	if (moneyIn === '50p') {
+		return '20p '.repeat(2).trim() + ' 10p';
+	}
+	if (moneyIn === '20p') {
+		return '10p 10p';
+	} else {
+		return 'Money';
+	}
+}
