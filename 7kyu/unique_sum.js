@@ -17,3 +17,9 @@ console.log(uniqueSum([1, 2, 3])); //, 6)
 console.log(uniqueSum([1, 3, 8, 1, 8])); //, 12)
 console.log(uniqueSum([-1, -1, 5, 2, -7])); //, -1)
 console.log(uniqueSum([])); //, null)
+
+const switcheroo = x =>
+	x
+		.split('')
+		.map(letter => (letter === 'a' ? 'b' : letter === 'b' ? 'a' : letter))
+		.join('');
