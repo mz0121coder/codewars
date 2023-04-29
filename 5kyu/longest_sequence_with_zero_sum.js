@@ -28,8 +28,8 @@ const maxZeroSequence = function (arr) {
 		.sort((a, b) => b.length - a.length)
 		// only show every sequence with same length as max length
 		.filter((item, index, arr) => item.length === arr[0].length);
-	// if sequences is empty, return []
-	//  else return first item in sequences (longest sequence)
+	// if sequences are empty, return []
+	// else show latest sequence with max length
 	return !sequences.length ? [] : result[result.length - 1];
 };
 
