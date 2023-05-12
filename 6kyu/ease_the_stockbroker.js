@@ -53,7 +53,7 @@ function balanceStatements(list) {
 		// if orders or buy/sell count have errors, add to mistakes
 		// use optional chaining to avoid undefined errors in tests
 		if (
-			// order quantity should have be an integer
+			// order quantity should be an integer
 			transactions[1]?.includes('.') ||
 			// order price should have a decimal point
 			!transactions[2]?.includes('.') ||
@@ -74,7 +74,7 @@ function balanceStatements(list) {
 			}
 		}
 	});
-	//   format and return result
+	// format and return result
 	let result = `Buy: ${Math.round(buyOrders)} Sell: ${Math.round(sellOrders)}`;
 	return buyOrders + sellOrders === 0
 		? result
