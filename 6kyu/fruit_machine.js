@@ -92,7 +92,6 @@ Good luck and enjoy!*/
 // make a result variable to get 3 items from their indexes in spin
 
 function fruit(reels, spins) {
-	let score = 0;
 	const items = [
 		'Wild',
 		'Star',
