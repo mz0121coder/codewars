@@ -23,8 +23,18 @@ function span(arr, predicate) {
 	if (arr.every(item => predicate(item))) {
 		return [arr, []];
 	}
+	const index = arr.indexOf(arr.find(item => !predicate(item)));
+	return [arr.slice(0, index), arr.slice(index)];
+}
+
+/*
+function span(arr, predicate) {
+	if (arr.every(item => predicate(item))) {
+		return [arr, []];
+	}
 	const result = [];
 	const index = arr.indexOf(arr.find(item => !predicate(item)));
 	result.push(arr.slice(0, index), arr.slice(index));
 	return result;
 }
+*/
