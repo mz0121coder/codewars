@@ -32,7 +32,8 @@ You can see other examples for each language in "Your test cases"
 function partlist(arr) {
 	const result = [];
 	for (let i = 0; i < arr.length - 1; i++) {
-		result.push([arr.slice(0, i + 1).join(' '), arr.slice(i + 1).join(' ')]);
+		const portion = [arr.slice(0, i + 1).join(' '), arr.slice(i + 1).join(' ')];
+		result.push(portion);
 	}
 	return result;
 }
@@ -40,12 +41,3 @@ function partlist(arr) {
 console.log(partlist(['I', 'wish', 'I', "hadn't", 'come'])); //,[["I", "wish I hadn't come"], ["I wish", "I hadn't come"], ["I wish I", "hadn't come"], ["I wish I hadn't", "come"]])
 console.log(partlist(['cdIw', 'tzIy', 'xDu', 'rThG'])); //, [["cdIw", "tzIy xDu rThG"], ["cdIw tzIy", "xDu rThG"], ["cdIw tzIy xDu", "rThG"]])
 console.log(partlist(['vJQ', 'anj', 'mQDq', 'sOZ'])); //, [["vJQ", "anj mQDq sOZ"], ["vJQ anj", "mQDq sOZ"], ["vJQ anj mQDq", "sOZ"]])
-
-function partlist(arr) {
-	const result = [];
-	for (let i = 0; i < arr.length - 1; i++) {
-		const portion = [arr.slice(0, i + 1).join(' '), arr.slice(i + 1).join(' ')];
-		result.push(portion);
-	}
-	return result;
-}
