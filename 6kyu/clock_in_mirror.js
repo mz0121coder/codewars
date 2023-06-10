@@ -32,12 +32,12 @@ There is no 13:20, instead it is 01:20.
 // else return new hour : new minutes
 
 function WhatIsTheTime(timeInMirror) {
-	const halfOne = ['12', '01', '02', '03', '04', '05'];
-	const halfTwo = ['11', '10', '09', '08', '07', '06'];
+	const right = ['12', '01', '02', '03', '04', '05'];
+	const left = ['11', '10', '09', '08', '07', '06'];
 	const [hours, minutes] = timeInMirror.split(':');
-	const newHours = halfOne.includes(hours)
-		? halfTwo[halfOne.indexOf(hours)]
-		: halfOne[halfTwo.indexOf(hours)];
+	const newHours = right.includes(hours)
+		? left[right.indexOf(hours)]
+		: right[left.indexOf(hours)];
 	const newMinutes = 60 - Number(minutes);
 	if (newMinutes < 10) {
 		return `${newHours}:0${newMinutes}`;
