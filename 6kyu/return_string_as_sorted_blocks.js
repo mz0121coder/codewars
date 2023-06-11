@@ -50,3 +50,22 @@ function blocks(s) {
 console.log(blocks('21AxBz')); //, "xzAB12");
 console.log(blocks('abacad')); //, "abcd-a-a");
 console.log(blocks('')); //, "");
+
+const inArray = (array1, array2) =>
+	[...array1].sort().filter(el => array2.some(item => item.includes(el)));
+
+function squareDigitsSequence(a0) {
+	const result = [a0];
+	for (let count = 2; count < Infinity; count++) {
+		const sequence = result
+			.at(-1)
+			.toString()
+			.split('')
+			.reduce((acc, curr) => acc + Math.pow(Number(curr), 2), 0);
+		if (result.includes(sequence)) {
+			return count;
+		} else {
+			result.push(sequence);
+		}
+	}
+}
