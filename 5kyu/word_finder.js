@@ -52,3 +52,13 @@ console.log(fruits.getMatchingWords('cherr??')); //, []);
 console.log(fruits.getMatchingWords('?a?a?a')); //, ['banana', 'papaya']);
 console.log(fruits.getMatchingWords('??????')); //, ['banana', 'papaya', 'cherry']);
 console.log(fruits.getMatchingWords('?????')); //, ['apple']);
+
+/*
+function Dictionary(words) {
+  this.words = words;
+}
+
+Dictionary.prototype.getMatchingWords = function (pattern) {
+  return this.words.filter(val => new RegExp(`^${pattern}$`.replace(/\?/g, `.`)).test(val));
+};
+*/
