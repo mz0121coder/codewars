@@ -32,10 +32,7 @@ function vowelStart(str) {
 }
 
 console.log(vowelStart('It is beautiful weather today!')); //, 'it isb e a ut if ulw e ath ert od ay',)
-console.log(vowelStart('Coding is great'), 'c od ing isgr e at');
-console.log(
-	vowelStart('my number is 0208-533-2325'),
-	'myn umb er is02085332325'
-);
+console.log(vowelStart('Coding is great')); //, 'c od ing isgr e at');
+console.log(vowelStart('my number is 0208-533-2325')); //'myn umb er is02085332325'
 console.log(vowelStart('oranges, apples, melon, pineapple')); //, 'or ang es appl esm el onp in e appl e', )
 console.log(vowelStart('under_score')); //, 'und ersc or e')
