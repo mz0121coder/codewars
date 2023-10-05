@@ -1,94 +1,41 @@
-import React, { useState, useEffect } from 'react';
+/*
+DESCRIPTION:
+School students Alice and Bob send messages to each other. To ensure that their messages are not readable by teachers they encrypt text with simple algorythm. Every message contains only latin letters (lowercase and uppercase))//, digits from 0 to 9 and space symbol.
 
-const WORD_LIST_API_URL = 'https://api.frontendexpert.io/api/fe/wordle-words';
+So, the encryption algorythm is:
 
-export default function Wordle() {
-	const [correctWord, setCorrectWord] = useState('');
-	const [board, setBoard] = useState([
-		['', '', '', '', ''],
-		['', '', '', '', ''],
-		['', '', '', '', ''],
-		['', '', '', '', ''],
-		['', '', '', '', ''],
-		['', '', '', '', ''],
-	]);
-	const [tileClasses, setTileClasses] = useState([
-		['', '', '', '', ''],
-		['', '', '', '', ''],
-		['', '', '', '', ''],
-		['', '', '', '', ''],
-		['', '', '', '', ''],
-		['', '', '', '', ''],
-	]);
-	const [guess, setGuess] = useState('');
-	const [row, setRow] = useState(0);
+Reverse the whole string.
+Replace every letter with it ASCII code in quotes (A to '65', h to '104' and so on).
+Insert digits and spaces as is.
+E.g. this message:
 
-	useEffect(() => {
-		fetch(WORD_LIST_API_URL)
-			.then(response => response.json())
-			.then(data => {
-				const randomIndex = Math.floor(Math.random() * data.length);
-				setCorrectWord(data[randomIndex]);
-			});
-	}, []);
+9Hi Alice4
+is encrypted as
 
-	useEffect(() => {
-		function handleKeyPress(e) {
-			if (e.key === 'Backspace' && guess.length > 0)
-				setGuess(prevGuess => prevGuess.slice(0, -1));
-			if (/^[a-z]$/i.test(e.key) && guess.length <= 5) {
-				setGuess(prevGuess => prevGuess + e.key);
-				setBoard(prevBoard => {
-					const updatedBoard = [...prevBoard];
-					updatedBoard[row][guess.length - 1] = e.key;
-					return updatedBoard;
-				});
-			}
-			if (e.key === 'Enter' && guess.length >= 5) {
-				guess.split('').forEach((char, index) => {
-					setTileClasses(prevClasses => {
-						const updatedClasses = [...prevClasses];
-						if (correctWord[index] === char) {
-							updatedClasses[row][index] = 'correct';
-						}
-						if (correctWord[index] !== char && correctWord.includes(char)) {
-							updatedClasses[row][index] = 'close';
-						}
-						if (!correctWord.includes(char)) {
-							updatedClasses[row][index] = 'incorrect';
-						}
-						return updatedClasses;
-					});
-				});
-				setGuess('');
-				setRow(prevRow => prevRow + 1);
-			}
-		}
+4'101''99''105''108''65' '105''72'9
+Your task is to write function decrypt to get source messages from encrypted strings.
+*/
 
-		window.addEventListener('keydown', handleKeyPress);
-		return () => window.removeEventListener('keydown', handleKeyPress);
-	}, [guess, board]);
+// const decrypt = str => {
+// 	let result = '';
+// 	const chars = str.match(/'[\d]+'|\d+|\s+/g) || '';
+// 	for (let i = chars.length - 1; i >= 0; i--) {
+// 		if (/'[\d]+'/.test(chars[i])) {
+// 			result += String.fromCharCode(Number(chars[i].match(/[\d]+/)[0]));
+// 		} else {
+// 			result += chars[i];
+// 		}
+// 	}
+// 	return result.replace(/\d+/g, x => x.split('').reverse().join(''));
+// };
 
-	return (
-		<>
-			<h1>{correctWord}</h1>
-			<div className='board'>
-				{board.map((row, rowIndex) => (
-					<div key={rowIndex} className='line'>
-						{row.map((tile, tileIndex) => (
-							<div
-								key={tileIndex}
-								className={
-									tileClasses[rowIndex][tileIndex] === ''
-										? 'tile'
-										: 'tile' + ' ' + tileClasses[rowIndex][tileIndex]
-								}>
-								{tile}
-							</div>
-						))}
-					</div>
-				))}
-			</div>
-		</>
-	);
-}
+const decrypt = str =>
+	str
+		.replace(/'\d+'/g, x => String.fromCharCode(Number(x.match(/\d+/)[0])))
+		.split('')
+		.reverse()
+		.join('');
+
+console.log(decrypt("'101''99''105''108''65'")); //, 'Alice');
+console.log(decrypt("'98''111''66'")); //, 'Bob');
+console.log(decrypt('30 71')); //, '17 03');
