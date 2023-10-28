@@ -13,7 +13,13 @@ More examples in test cases.
 Good luck!*/
 
 function solve(a, b) {
-	return (a.includes('*') && a.split('*').every(x => b.includes(x))) || a === b;
+	if (a.replace('*', '') === b) return true;
+	const index = a.indexOf('*');
+	for (let i = index + 1; i <= b.length; i++) {
+		const section = b.slice(index, i);
+		if (a.replace('*', section) === b) return true;
+	}
+	return false;
 }
 
 console.log(solve('code*s', 'codewars')); //true)
