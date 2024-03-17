@@ -7,7 +7,7 @@ Note: you will always receive a valid array containing a random assortment of di
 /*
 X, Y, and time all start at 0
 Loop through walk array, for each item: 
-Update values based and increase time by 1
+Update values and increase time by 1
 
 Check if X and Y are 0 and time is 10
 */

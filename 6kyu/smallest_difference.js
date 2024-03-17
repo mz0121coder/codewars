@@ -35,7 +35,7 @@ If 1 array is empty return smallest number from other array
 If both are empty return -1
 Start min diff as Infinity, loop through first unique copy:
 Nested loop through 2nd unique copy, 
-get the absolute difference between each pear and reassign min diff
+get the absolute difference between each pair and reassign min diff
 */
 
 function smallestDiff(arr1, arr2) {
